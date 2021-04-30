@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 pytest = "*"
 pygame = "*"
+flake8 = "*"
+pylint = "*"
+pytest-cov = "*"
+pydocstyle = "*"
 
 [dev-packages]
 
