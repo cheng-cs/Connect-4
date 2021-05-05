@@ -1,5 +1,9 @@
 import numpy as np
+import sys
 
+
+# this is all calculated using pixels
+#use `pip install pygame (my version is 2.0.1)`
 
 # to make the code more presentiable
 # We use 2 global variable
@@ -61,17 +65,14 @@ def winner(board, piece):
 
 board = making_board()
 print_board(board)
-
 game_over = False
-
 turn = 0
 
-
 while not game_over:
-    # asking the 1st player for an input.
+
     if turn == 0:
         # making sure that the output for player 1 is an int
-        selection = int(input("Player 1 Make your move (1-6):"))
+        selection = int(input("Player 1 Make your move (0-6):"))
 
         if is_location_valid(board, selection):
             # if there is a space on our board that is not occupied, than we can move on
@@ -85,7 +86,7 @@ while not game_over:
 
     # asking the 2nd player for an input
     else:
-        selection = selection = int(input("Player 2 Make your move (1-6):"))
+        selection = selection = int(input("Player 2 Make your move (0-6):"))
 
         if is_location_valid(board, selection):
             # same thing as player 1, just change 1 to 2
@@ -95,8 +96,6 @@ while not game_over:
             if winner(board, 2):
                 print("Player 2 Wins")
                 game_over = True
-
-                break 
 
     print_board(board)
     turn += 1
