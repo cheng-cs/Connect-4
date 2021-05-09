@@ -61,6 +61,27 @@ Results (0.14s):
 ```
 ## Using Gradle
 
+Since the above `docker run` command uses a Docker image that, by default, runs `gradle grade` and then exits the Docker container, you may want to instead run the following command so that you enter an "interactive terminal" that will allow you to repeatedly run commands within the Docker container.
+
+In Linux and Mac OS:
+
+```bash
+docker run -it --rm --name dockagator \
+  -v "$(pwd)":/project \
+  -v "$HOME/.dockagator":/root/.local/share \
+  gatoreducator/dockagator /bin/bash
+```
+
+In Windows OS (replace `user` with your machine's username):
+
+```bash
+docker run -it --rm --name dockagator -v "%cd%":/project -v "C:\Users\user/.dockagator":/root/.local/share gatoreducator/dockagator /bin/bash
+```
+
 ## Updates
 
+If you are working with a team, but are not using branches use the `git pull` command.
+
 ## GitHub Actions
+
+This program uses [GitHub Actions CI](https://github.com/features/actions) to automatically run the checking programs every time you commit to your GitHub repository. The checking will start as soon as you have accepted the assignment, thus creating your own private repository.
