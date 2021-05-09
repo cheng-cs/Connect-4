@@ -63,42 +63,43 @@ def winner(board, piece):
                 return True
 
 
-board = making_board()
-print_board(board)
-game_over = False
-turn = 0
-
-while not game_over:
-
-    if turn == 0:
-        # making sure that the output for player 1 is an int
-        selection = int(input("Player 1 Make your move (0-6):"))
-
-        if is_location_valid(board, selection):
-            # if there is a space on our board that is not occupied, than we can move on
-            row = get_next_row(board, selection)
-            # allows us to drop pieces into said spaces
-            dropping_piece(board, row, selection, 1)
-
-            if winner(board, 1):
-                print("Player 1 Wins")
-                game_over = True
-
-    # asking the 2nd player for an input
-    else:
-        selection = selection = int(input("Player 2 Make your move (0-6):"))
-
-        if is_location_valid(board, selection):
-            # same thing as player 1, just change 1 to 2
-            row = get_next_row(board, selection)
-            dropping_piece(board, row, selection, 2)
-
-            if winner(board, 2):
-                print("Player 2 Wins")
-                game_over = True
-
+if __name__ == "__main__":
+    board = making_board()
     print_board(board)
-    turn += 1
-    # taking the remiander and % by 2
-    # the goal here is to allow player 1 and 2 to play
-    turn = turn % 2
+    game_over = False
+    turn = 0
+
+    while not game_over:
+
+        if turn == 0:
+            # making sure that the output for player 1 is an int
+            selection = int(input("Player 1 Make your move (0-6):"))
+
+            if is_location_valid(board, selection):
+                # if there is a space on our board that is not occupied, than we can move on
+                row = get_next_row(board, selection)
+                # allows us to drop pieces into said spaces
+                dropping_piece(board, row, selection, 1)
+
+                if winner(board, 1):
+                    print("Player 1 Wins")
+                    game_over = True
+
+        # asking the 2nd player for an input
+        else:
+            selection = selection = int(input("Player 2 Make your move (0-6):"))
+
+            if is_location_valid(board, selection):
+                # same thing as player 1, just change 1 to 2
+                row = get_next_row(board, selection)
+                dropping_piece(board, row, selection, 2)
+
+                if winner(board, 2):
+                    print("Player 2 Wins")
+                    game_over = True
+
+        print_board(board)
+        turn += 1
+        # taking the remiander and % by 2
+        # the goal here is to allow player 1 and 2 to play
+        turn = turn % 2
