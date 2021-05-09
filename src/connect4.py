@@ -16,7 +16,7 @@ def making_board():
     return board
 
 
-def dropping_piece(board, row, selectionm, piece):
+def dropping_piece(board, row, selection, piece):
     board[row][selection] = piece
 
 def is_location_valid(board, selection):
