@@ -41,7 +41,7 @@ jobs:
         #continue-on-error: true
       - name: Run testing
         run: |
-          pipenv run pytest --cov-config pytest.cov --cov
+          pipenv run pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch
         #continue-on-error: true
         if: always()
         env:
