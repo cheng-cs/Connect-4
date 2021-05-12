@@ -27,10 +27,12 @@ jobs:
         run: |
           pipenv install --dev
           pipenv run flake8 src
+          pipenv run flake8 tests
         #continue-on-error: true
       - name: Lint with pylint
         run: |
           pipenv run pylint src
+          pipenv run pylint tests
         #continue-on-error: true
       - name: Check pydocstyle
         run: |
@@ -41,6 +43,7 @@ jobs:
         #continue-on-error: true
       - name: Run testing
         run: |
+          pipenv install pytest
           pipenv run pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch
         #continue-on-error: true
         if: always()
