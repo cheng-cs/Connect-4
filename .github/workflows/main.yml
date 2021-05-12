@@ -37,7 +37,7 @@ jobs:
           pipenv run pydocstyle
       - name: Run program
         run: |
-          pipenv run python3 termfrequency/compute_tf_pipeline.py inputs/input.txt
+          pipenv run python3 src/connect4.py
         #continue-on-error: true
       - name: Run testing
         run: |
