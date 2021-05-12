@@ -10,6 +10,7 @@ flake8 = "*"
 pylint = "*"
 pytest-cov = "*"
 pydocstyle = "*"
+hypothesis = "*"
 
 [dev-packages]
 
