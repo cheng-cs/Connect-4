@@ -1,4 +1,3 @@
-import pytest
 import numpy
 
 from src import connect4
@@ -25,8 +24,8 @@ def test_is_location_valid():
     while i < 6:
         connect4.dropping_piece(board, i, 0, 1)
         i = i + 1
-    assert connect4.is_location_valid(board, 0) == False
-    assert connect4.is_location_valid(board, 1) == True
+    assert connect4.is_location_valid(board, 0) is False
+    assert connect4.is_location_valid(board, 1) is True
 
 
 def test_winner():
@@ -35,6 +34,6 @@ def test_winner():
     connect4.dropping_piece(board, 3, 0, 1)
     connect4.dropping_piece(board, 2, 1, 1)
     connect4.dropping_piece(board, 1, 2, 1)
-    assert connect4.winner(board, 1) == None
+    assert connect4.winner(board, 1) is None
     connect4.dropping_piece(board, 0, 3, 1)
-    assert connect4.winner(board, 1) == True
+    assert connect4.winner(board, 1) is True
