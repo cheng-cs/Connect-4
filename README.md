@@ -12,7 +12,7 @@ Here is a sample of the Pipenv commands that you will need to run during this as
 - Run the linters and the formatter to check the Python source code: `pipenv run lint --check`
 
 Here is a sample of the Pipenv commands that you will need to run this program.
-- `pipenv run pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch to use` pytest.
+- `pipenv run pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch` to use pytest.
 - use the `cd` command and navigate to your connect4 folder.
 - enter `python connect4.py` in your terminal to run the program
 - To stop the program enter `control z` for mac.
