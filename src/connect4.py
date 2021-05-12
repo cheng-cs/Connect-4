@@ -92,7 +92,10 @@ def winner(board, piece):
 
 def run_turn(board, turn):
     """Prompt users when it's their turn."""
-    selection = int(input(f"Player {turn} Make your move (0-6):"))
+    try:
+        selection = int(input(f"Player {turn} Make your move (0-6):"))
+    except EOFError as error:
+        selection = 0
 
     if is_location_valid(board, selection):
         # if there is a space on our board that is not occupied, than we can move on
