@@ -43,10 +43,6 @@ jobs:
         run: |
           pipenv run pytest tests --cov-config pytest.cov --cov
         #continue-on-error: true
-      - name: Check practical
-        run: |
-          gradle grade
-          #continue-on-error: true
         if: always()
         env:
           PIPENV_VENV_IN_PROJECT: 1
