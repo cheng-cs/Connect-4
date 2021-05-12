@@ -1,3 +1,4 @@
+"""This is the Connect 4 program."""
 import numpy as np
 
 
@@ -12,35 +13,37 @@ COLUMN = 7
 
 
 def making_board():
+    """Create the board itself."""
     board = np.zeros((ROW, COLUMN))
     return board
 
 
 def dropping_piece(board, row, selection, piece):
+    """Drop the piece into the board."""
     board[row][selection] = piece
 
 
 def is_location_valid(board, selection):
-    # making sure the selection from the player is legal
+    """Make sure the selection from the player is legal."""
     return board[ROW - 1][selection] == 0
 
 
 def get_next_row(board, selection):
-    # if there are spaces left on the board, this will let us put something in it
+    """If there are spaces left on the board, this will let us put something in it."""
     for r in range(ROW):
         if board[r][selection] == 0:
             return r
 
 
 def print_board(board):
-    # print board so that it display the right thing
+    """Print board so that it display the right thing."""
     # reversing board, can't use flip due to numpy version
     reverse_board = board[::-1]
     print(reverse_board)
 
 
 def winner(board, piece):
-    # check all horizontal locations on the board for a win
+    """Check all horizontal locations on the board for a win."""
     # reason for 3 is becuase in the board the last 3 COLUMN does not work. so we take it off
     # this will make more sense when you run the code. Its hard explaining using words.
     for c in range(COLUMN - 3):
@@ -88,6 +91,7 @@ def winner(board, piece):
 
 
 def run_turn(board, turn):
+    """Prompt users when it's their turn."""
     selection = int(input(f"Player {turn} Make your move (0-6):"))
 
     if is_location_valid(board, selection):

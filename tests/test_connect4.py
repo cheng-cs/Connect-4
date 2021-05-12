@@ -1,3 +1,4 @@
+"""Tests the Connect 4 program"""
 import numpy
 
 from src import connect4
@@ -18,7 +19,8 @@ def test_dropping_piece():
 
 
 def test_is_location_valid():
-    """Check that the board validation test returns True if there is a valid space and False if their is not."""
+    """Check that the board validation test returns
+    True if there is a valid space and False if their is not."""
     board = connect4.making_board()
     i = 0
     while i < 6:
@@ -29,7 +31,8 @@ def test_is_location_valid():
 
 
 def test_winner():
-    """Check if the winner is not true yet and then check if their is a winner after making a move resulting in 4 in a row."""
+    """Check if the winner is not true yet and then check if
+    their is a winner after making a move resulting in 4 in a row."""
     board = connect4.making_board()
     connect4.dropping_piece(board, 3, 0, 1)
     connect4.dropping_piece(board, 2, 1, 1)
