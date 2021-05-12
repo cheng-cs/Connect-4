@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 
 
 # this is all calculated using pixels
