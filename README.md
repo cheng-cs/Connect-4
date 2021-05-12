@@ -1,10 +1,5 @@
 # Connect-4
 
-## Introduction
-
-
-
-
 ## System commands (using Pyenv and Pipenv)
 
 Assuming that you will use [Pyenv](https://github.com/pyenv/pyenv) to download and manage your installation of Python, this practical assignment also invites you to use [Pipenv](https://github.com/pypa/pipenv) to create a virtual environment, install and manage development packages, and to run Python commands. Previously, you should have run the following command:
@@ -17,7 +12,7 @@ Here is a sample of the Pipenv commands that you will need to run during this as
 - Run the linters and the formatter to check the Python source code: `pipenv run lint --check`
 
 Here is a sample of the Pipenv commands that you will need to run this program.
-
+- `pipenv run pytest -s --cov-config .coveragerc --cov-report term-missing --cov-report xml --cov --cov-branch to use` pytest.
 - use the `cd` command and navigate to your connect4 folder.
 - enter `python connect4.py` in your terminal to run the program
 - To stop the program enter `control z` for mac.
