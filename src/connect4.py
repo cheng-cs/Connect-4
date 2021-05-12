@@ -121,4 +121,7 @@ if __name__ == "__main__":
         # taking the remiander and % by 2
         # the goal here is to allow player 1 and 2 to play
         turn = turn % 2
-    input()
+    try:
+        input()
+    except EOFError:
+        print("Running...")
