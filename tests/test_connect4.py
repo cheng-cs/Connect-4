@@ -20,19 +20,20 @@ def test_dropping_piece():
 
 def test_is_location_valid():
     """Check that the board validation test returns
-    True if there is a valid space and False if their is not."""
+    True if there is a valid space and False if there is not."""
     board = connect4.making_board()
     i = 0
     while i < 6:
         connect4.dropping_piece(board, i, 0, 1)
         i = i + 1
-    assert connect4.is_location_valid(board, 0) is False
-    assert connect4.is_location_valid(board, 1) is True
+    # The 'is' keyword does not work here because it is comparing the bool for a statement to a boolean.
+    assert connect4.is_location_valid(board, 0) == False
+    assert connect4.is_location_valid(board, 1) == True
 
 
 def test_winner():
     """Check if the winner is not true yet and then check if
-    their is a winner after making a move resulting in 4 in a row."""
+    there is a winner after making a move resulting in 4 in a row."""
     board = connect4.making_board()
     connect4.dropping_piece(board, 3, 0, 1)
     connect4.dropping_piece(board, 2, 1, 1)
