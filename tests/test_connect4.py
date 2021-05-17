@@ -45,7 +45,21 @@ def test_is_location_valid():
                       [0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]])),
     ]
 )
-def test_winner(board):
-    """Check if the winner is not true yet and then check if
-    there is a winner after making a move resulting in 4 in a row."""
+def test_winner_true(board):
+    """Check that each winning board type returns True."""
     assert connect4.winner(board, 1) is True
+
+
+def test_winner_false():
+    """Check that a board type that has not won is not True"""
+    assert connect4.winner(connect4.making_board(), 1) is None
+
+
+def test_run_turn():
+    """Check that run turn correctly places the piece and evaluates the state of the game after."""
+    board = (numpy.array([[0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0],
+                          [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]))
+    empty_board = connect4.making_board()
+    connect4.input = lambda x: '0'
+    assert connect4.run_turn(board, 1) is True
+    assert connect4.run_turn(empty_board, 1) is None
