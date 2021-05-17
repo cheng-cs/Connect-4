@@ -1,5 +1,6 @@
 """Tests the Connect 4 program"""
 import numpy
+import pytest
 
 from src import connect4
 
@@ -22,22 +23,24 @@ def test_is_location_valid():
     """Check that the board validation test returns
     True if there is a valid space and False if there is not."""
     board = connect4.making_board()
-    i = 0
+    i = 1
     while i < 6:
         connect4.dropping_piece(board, i, 0, 1)
         i = i + 1
-    # The 'is' keyword does not work here because it is comparing the bool for a statement to a boolean.
-    assert connect4.is_location_valid(board, 0) == False
-    assert connect4.is_location_valid(board, 1) == True
 
+    assert not connect4.is_location_valid(board, 0)
+    assert connect4.is_location_valid(board, 1)
 
-def test_winner():
+@pytest.mark.parametrize(
+    "board",
+    [
+    (numpy.array([[0,0,0,1,0,0,0], [0,0,1,0,0,0,0], [0,1,0,0,0,0,0], [1,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]])),
+    (numpy.array([[1,1,1,1,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]])),
+    (numpy.array([[1,0,0,0,0,0,0], [1,0,0,0,0,0,0], [1,0,0,0,0,0,0], [1,0,0,0,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]])),
+    (numpy.array([[1,0,0,0,0,0,0], [0,1,0,0,0,0,0], [0,0,1,0,0,0,0], [0,0,0,1,0,0,0], [0,0,0,0,0,0,0], [0,0,0,0,0,0,0]])),
+    ]
+)
+def test_winner(board):
     """Check if the winner is not true yet and then check if
     there is a winner after making a move resulting in 4 in a row."""
-    board = connect4.making_board()
-    connect4.dropping_piece(board, 3, 0, 1)
-    connect4.dropping_piece(board, 2, 1, 1)
-    connect4.dropping_piece(board, 1, 2, 1)
-    assert connect4.winner(board, 1) is None
-    connect4.dropping_piece(board, 0, 3, 1)
     assert connect4.winner(board, 1) is True
